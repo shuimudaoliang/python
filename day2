@@ -1,0 +1,37 @@
+#day2
+# #思路
+# 1. 从头循环sstr的每一个字符c,循环findstr的第一个字符fc
+# 2. 比较c和fc，如果相等，从c继续比较
+# 3. 如果没有找到从c+1开始重复1
+# 4. 如果找到要replace，则拼接replacestr
+
+s = 'hello world'
+print(s.find('d'))
+
+def myfind(sstr, findstr):
+    for i in range(len(sstr)):    #循环sstr字符
+        if sstr[i] == findstr[0]:      #如果sstr的字符与findstr的第一个字符相等的话
+            j = i               #记录下相等是的索引位置号为后续+1位的字符临时变量
+            for k in range(len(findstr)):    #然后索引的位置号的字符进入循环findstr的字符
+                if sstr[j] != findstr[k]:      #如何找到的字符与findstr比较如果后面的字符不相等(这里多比较了一次)
+                    break               #退出循环
+                j = j + 1               #：当 for 循环被 break 中断后，其后的 else 语句就不执行了。否则执行else语句
+            else:                       #可以理解与for里的if对应如果相等则返回i
+                return i
+    return -1
+
+
+
+
+
+
+def myreplace(sstr, findstr, replacestr):
+    index = sstr.find(findstr)
+    if index != -1:
+        if len(replacestr)!=0: #replacestr不是空字符串时
+            sstr = sstr[0:index]+replacestr+sstr[index+len(replacestr):] #拼接
+        else:                   #空字符串时
+            sstr = sstr[0:index]+sstr[index+len(findstr):]          #拼接
+    return sstr
+print(myfind('hello world','ll'))
+print(myreplace('shuimudaoliang','dao','xxx'))
