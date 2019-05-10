@@ -1,0 +1,38 @@
+
+# day3
+
+def mylen(str):
+    i = 0   #定义下标
+    while True:
+        try:
+            c = str[i] #取个个字符也就取出字符的位置了，为了取下标要写取出字符，而这个字符是不需要的
+            # print(c)
+            i = i + 1
+        except:
+            break
+    return i
+
+# #思路
+# 1. 从头循环sstr的每一个字符c,循环findstr的第一个字符fc
+# 2. 比较c和fc，如果相等，从c继续比较
+# 3. 如果没有找到从c+1开始重复1
+# 4. 如果找到,计数加1
+
+def mycount(sstr, findstr):
+    count = 0                               #计数器
+    for i in range(len(sstr)):              #循环遍历sstr
+        for j in range(len(findstr)):       #循环遍历findstr
+            if sstr[i] == findstr[j]:       #如果相等则加1
+                count = count + 1
+            else:
+                continue                    #否则继续下个字符的循环
+    if len(findstr) == 0:
+        count = len(sstr)+1
+    return count
+
+str1 = "abcxxxbxxxcgcc"
+
+#测试
+assert mylen(str1) == 14
+assert mycount(str1, "a") == 1
+assert mycount(str1, "x") == 6
