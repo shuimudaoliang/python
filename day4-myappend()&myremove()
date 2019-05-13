@@ -1,0 +1,35 @@
+#day4
+list0 = ['a','b','c']
+
+def myappend(llist, item):
+    tempstr= ''
+    for str in llist:           #循环列表的每个值
+        tempstr = tempstr +str+','      #列表转变成字符
+    tempstr = tempstr +item             #真加新的字符
+    return print(tempstr.split(','))    #字符转换为列表
+
+# myappend(list0,'d')
+
+# #思路
+# 1. 从头循环llist用==判断找到第一个item
+# 2. 找到了则移除并返回
+# 3. 没找到返回原始list
+list1 = ['a','b','c','a']
+# for i in range(len(list1)):
+#     if i > len(list1):
+#         break
+#     if list1[i] == 'a':
+#         list1.pop(i)
+#         print(list1)
+
+def myremove(llist,item):
+    for i in range(len(llist)):
+        if i > len(llist):  #如果大于长度就退出
+            break
+        if llist[i] == item:    #如果列表的字符相等于iterm
+            llist.pop(i)        #删除item
+            return print(llist)
+        else:                   #否则返回列表
+            return print(llist)
+
+myremove(list1,'a')
