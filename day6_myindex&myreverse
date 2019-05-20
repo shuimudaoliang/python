@@ -1,0 +1,36 @@
+
+#day6
+#测试
+
+str1 = "12345"
+assert str1[::-1] == "54321"
+print(str1[::-1])
+
+list1 = [1,2,3,4,5]
+list1.reverse()
+assert list1 == [5,4,3,2,1]
+
+list1 = [1,2,3,4,5]
+
+str0 = "abc.daef"
+assert str0.index(".") == 3
+
+def myindex(sstr,findstr):
+    for i in range(len(sstr)):      #循环类表
+        if sstr[i] == findstr:      #等于字符findsgr
+            return i                #返回索引位置i
+    return -1                       #否则没有找到
+
+assert myindex(str0, ".") ==  3
+# print(myindex(str0, "x"))
+
+
+def myreverse(llist):
+    new_list =[]            #新建列表
+    for i in llist[::-1]:   #倒着循环列表
+        new_list.append(i)  #逐个填充新的list
+    return new_list
+
+# print(myreverse(list1))
+
+assert myreverse(list1) ==  [5,4,3,2,1]
