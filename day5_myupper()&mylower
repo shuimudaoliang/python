@@ -1,0 +1,41 @@
+#day5
+#测试
+str0 = "a,bc"
+assert str0.upper() == "A,BC"
+str1 = "Ab,c"
+assert str1.upper() == "AB,C"
+assert str1.lower() == "ab,c"
+
+# #思路
+# 1. 从头循环sstr得到字符c
+# 2. 判断c是小写还是大写
+# 3. 根据大小写转换规则转换
+
+#小写转大写
+def myupper(sstr):
+    tempstr = ''
+    for i in sstr:
+        if  i.islower():
+            i = chr(ord(i)-32)
+            tempstr = tempstr +i
+        else:
+            tempstr = tempstr + i
+    print(tempstr)
+
+myupper('gggggG11aaaa')
+
+#大写转小写
+def mylower(sstr):
+    tempstr = ''
+    for i in sstr:
+        if i.isupper():
+            i = chr(ord(i) + 32)
+            tempstr = tempstr + i
+        else:
+            tempstr = tempstr + i
+    print(tempstr)
+
+mylower('gggggG11aaaa')
+# assert myupper(str0) ==  "A,BC"
+# assert myupper(str1) ==  "AB,C"
+# assert mylower(str1) ==  "ab,c"
