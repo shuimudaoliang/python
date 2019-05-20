@@ -1,0 +1,26 @@
+#day9
+
+list = [111,45,67,299,243,34,87,33]
+def dubble_sort(slist):             #冒泡法
+    for i  in range(len(slist)-1):          #循环次数为n-1
+        print("第{}轮:".format(i+1))
+        for j in range(len(slist)-1-i):     #比较次数为n-1-i
+            print("第{}轮中的第{}次:".format((i + 1),(j+1)))
+            if slist[j] > slist[j+1]:       #前面大于后面则交换
+                slist[j],slist[j+1] = slist[j+1],slist[j]
+            print(slist)
+# dubble_sort(list)
+
+
+def select_sort(slist):                #选择排序
+    for i in range(len(slist) - 1):
+        min_loc = i  # 假设当前最小的值的索引就是i
+        for j in range(i + 1, len(slist)):     #循环完找到最小的索引号
+            if slist[j] < slist[min_loc]:
+                min_loc = j
+        if min_loc != i:  #  找到最下小标后，如果不等于最初定的最小小标i 则交换成为最小
+            slist[i], slist[min_loc] = slist[min_loc], slist[i]
+
+    return slist
+
+# print(select_sort(list))
