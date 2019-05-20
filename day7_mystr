@@ -1,0 +1,59 @@
+
+#day 7
+#测试
+
+# print(type(str0))
+# assert int(str0) == 12345
+# assert float(str0) == 12345.0
+
+
+
+# #思路
+# 1. 从头开始循环，得到字符c
+# 2. 计算字符c的数字代表多少
+# 3. 进位法计算得到int
+def myint(sstr):
+    total_num =0
+    num =0
+    for i in sstr:
+        if i.isnumeric():       #如何是数字的话
+            num =ord(i)-ord('0')        #字符数字变成长数字
+            total_num = total_num*10 +num   #迭代生成数字的总是**
+        else:
+            return -1
+    return total_num
+
+str0 = "12345"
+# print(myint(str0))
+assert myint(str0) == 12345
+
+
+# #思路
+
+# assert str(int0) == "123.456"
+# def mystr(iint):
+#     tuple1=(10,100,1000,10000,100000,1000000,10000000) #位数
+#     for i in range(len(tuple)):
+#         if  iint/tuple[i] <=10 and iint/tuple[i] >=0:
+#             return i
+#         thousand = iint / tuple[i];   #千
+#         hundred = iint / tuple[i-1] % 10;    # 百
+#         ten = iint /tuple[i-2] % 10;     # 十
+#         a = iint % 10;     # 个
+
+def mystr(iint):
+    arr = "0123456789"
+    str = ""
+    while True:
+        new_iint = int(iint/10)
+        last_index = iint%10
+        iint = new_iint
+        str = arr[last_index] + str
+        if iint == 0:
+            str = arr[last_index] + str
+            break
+    return str
+
+int0 = 3578999
+
+print(mystr(int0))
